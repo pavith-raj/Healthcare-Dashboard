@@ -1,12 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* CSS Variables for consistency */
+:root {
+  /* Colors - Adjusted based on image for better fidelity */
+  --color-primary-blue: #5B90F4;       /* Accent blue */
+  --color-secondary-dark: #2C3E50;     /* Dark text/logo */
+  --color-text-medium: #7F8C8D;      /* Medium grey text */
+  --color-text-light: #BDC3C7;       /* Light grey text, general heading */
+  --color-background-app: #F8F9FA;   /* Main app background */
+  --color-background-card: #FFFFFF;  /* Card background (sidebar, header, content panels) */
+  --color-healthy: #2ECC71;          /* Green status */
+  --color-issue: #E74C3C;            /* Red status */
+  --color-calendar-day-active: #E8F0FE; /* Light blue for active calendar day */
+  --color-calendar-text-blue: #4A85F1; /* Darker blue for calendar times */
+  --color-light-border: #EEEEEE;     /* Very light grey for subtle borders */
+  --color-search-bg: #F2F4F7;         /* Slightly darker background for search input */
+
+  /* Fonts */
+  --font-family-primary: 'Inter', sans-serif;
+  --font-size-xxs: 0.75rem; /* ~12px */
+  --font-size-xs: 0.875rem; /* ~14px */
+  --font-size-sm: 1rem;     /* ~16px (base) */
+  --font-size-md: 1.125rem; /* ~18px */
+  --font-size-lg: 1.25rem;  /* ~20px */
+  --font-size-xl: 1.5rem;   /* ~24px */
+  --font-size-xxl: 2rem;    /* ~32px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+/* Spacing (consistent multiples for easier layout) */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+
+  /* Borders & Shadows */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-pill: 50px; /* For buttons like + and search bar */
+
+  /* Standard card shadow from image */
+  --box-shadow-card: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft, light shadow */
+  --box-shadow-input: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* For inputs */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body, #root {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-family-primary);
+    background-color: var(--color-background-app);
+    color: var(--color-secondary-dark); /* Default text color */
+    font-size: var(--font-size-sm); 
+}
+
 .app-container{
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-background-app);
 }
-.main-content{
+
+.content-area{
+  display: flex;
   flex: 1;
-  padding: 20px;
-  background-color:#fefefe ;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-card);
+  box-shadow: var(--box-shadow-card);
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-light-border);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
 }
 
 .sidebar{
@@ -15,9 +99,4 @@
   padding: 20px; 
   
 }
-.header{
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-}
+
