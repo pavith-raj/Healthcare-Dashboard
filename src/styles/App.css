@@ -3,7 +3,7 @@
 /* CSS Variables for consistency */
 :root {
   /* Colors - Adjusted based on image for better fidelity */
-  --color-primary-blue: #5B90F4;       /* Accent blue */
+  --color-primary-blue: #053897;       /* Accent blue */
   --color-secondary-dark: #2C3E50;     /* Dark text/logo */
   --color-text-medium: #7F8C8D;      /* Medium grey text */
   --color-text-light: #BDC3C7;       /* Light grey text, general heading */
@@ -80,6 +80,7 @@ body, #root {
   overflow: hidden;
 }
 
+/* --- Header Styles --- */
 .header{
   display: flex;
   justify-content: space-between;
@@ -93,6 +94,96 @@ body, #root {
   gap: var(--spacing-md);
 }
 
+.header .logo{
+  font-size:var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary-dark);
+}
+
+.search-bar{
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius-pill);
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  flex: 0.8;
+  max-width: 450px;
+  box-shadow: var(--box-shadow-input);
+}
+
+.search-icon{
+  color: var(--color-primary-blue);
+  margin-right: var(--spacing-xs);
+  font-size: var(--font-size-md);
+}
+
+.search-input{
+  border: none;
+  background: none;
+  outline: none;
+  flex: 1;
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary-dark);
+  padding: 0;
+}
+
+.search-input::placeholder{
+  color: var(--color-text-medium);
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.add-button{
+  background-color: var(--color-primary-blue);
+  color: white;
+  border: none;
+  border-radius: 30%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  box-shadow: var(--box-shadow-card);
+  flex-shrink: 0;
+}
+
+.notification-icon{
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-blue);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.user-profile{
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--color-search-bg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-pill);
+  flex-shrink: 0;
+
+}
+
+.avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary-dark);
+  font-size: var(--font-size-sm);
+}
+
+
+/* -- Sidebar Styles -- */
 .sidebar{
   width: 240px;
   background-color:#f7f9fc;

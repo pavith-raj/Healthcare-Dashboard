@@ -13,19 +13,19 @@ const Header = () => {
 
         <div className="search-bar">
             <FaSearch className="search-icon" />
-            <input type="text" placeholder="Search" className="search-input" />
+            <input type="text" placeholder="Search" className="search-input" /> 
         </div>
+        <FaBell className="notification-icon" />
 
         <div className="right-section">
-            <button className="add-button">
-                <FaPlus />
-            </button>
-
-            <FaBell className="notification-icon" />
             <div className="user-profile">
                 <img src={avatar} alt="User Avatar" className="avatar" />
                 <span className="user-name">Dr. Sarah</span>
             </div>
+    
+            <button className="add-button">
+                <FaPlus />
+            </button>
         </div>
     </header>
   );

@@ -1,5 +1,7 @@
 import React from "react";
 import '../styles/App.css';
+import { FaTachometerAlt, FaHiostory, FaCalenderAlt, FaBriefcaseMedical, FaChartBar, FaComments, FaLifeRing, FaCog } from 'react-icons/fa';
+
 
 const Sidebar = () =>{
     return (
