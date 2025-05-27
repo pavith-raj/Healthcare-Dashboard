@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="header">
         <div className="logo">
-            <span style={{ color: '#0AB3FF' }}>Health</span>
+            <span style={{ color: 'rgb(18 182 190)' }}>Health</span>
             <span style={{ color: '#2E3A59' }}>care.</span>
         </div>
 

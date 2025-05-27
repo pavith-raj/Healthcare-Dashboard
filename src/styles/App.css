@@ -2,9 +2,10 @@
 
 /* CSS Variables for consistency */
 :root {
-  /* Colors - Adjusted based on image for better fidelity */
+  /* Colors  */
   --color-primary-blue: #053897;       /* Accent blue */
-  --color-secondary-dark: #2C3E50;     /* Dark text/logo */
+  --color-logo: #12b6be; 
+  --color-secondary-dark: #2C3E50;     /* Dark text */
   --color-text-medium: #7F8C8D;      /* Medium grey text */
   --color-text-light: #BDC3C7;       /* Light grey text, general heading */
   --color-background-app: #F8F9FA;   /* Main app background */
@@ -31,7 +32,7 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-/* Spacing (consistent multiples for easier layout) */
+/* Spacing  */
   --spacing-xxs: 4px;
   --spacing-xs: 8px;
   --spacing-sm: 12px;
@@ -70,6 +71,7 @@ body, #root {
   flex-direction: column;
   min-height: 100vh;
   background-color: var(--color-background-app);
+  padding-top:70px;
 }
 
 .content-area{
@@ -80,7 +82,7 @@ body, #root {
   overflow: hidden;
 }
 
-/* --- Header Styles --- */
+/* ------------------------------------- Header Styles ----------------------- */
 .header{
   display: flex;
   justify-content: space-between;
@@ -92,6 +94,11 @@ body, #root {
   border-bottom: 1px solid var(--color-light-border);
   flex-wrap: wrap;
   gap: var(--spacing-md);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .header .logo{
@@ -183,11 +190,687 @@ body, #root {
 }
 
 
-/* -- Sidebar Styles -- */
+/* ---------------------------------------------- Sidebar Styles ----------------------------- */
 .sidebar{
-  width: 240px;
-  background-color:#f7f9fc;
-  padding: 20px; 
-  
+  width: 220px;
+  background-color: var(--color-background-card);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-card);
+  flex-shrink: 0;
+  height: 100%;
+  position: fixed;
+}
+.sidebar-wrapper {
+  width: 250px; 
+  background-color: #f5f5f5; 
 }
 
+
+.sidebar .heading{
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-light); 
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-sm);
+}
+
+.nav-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item{
+  margin-bottom: var(--spacing-xs);
+}
+
+.nav-link{
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-text-medium);
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.nav-link:hover {
+  background-color: var(--color-primary-blue);
+  color: white;
+}
+
+.nav-link.active {
+  background-color: var(--color-primary-blue);
+  color: white;
+}
+.nav-icon {
+  font-size: var(--font-size-md);
+  color: var(--color-text-medium);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover .nav-icon,
+.nav-link.active .nav-icon {
+  color: white;
+}
+
+/* ---------------------------------- DashboardMainContent Styles ----------------------- */
+ 
+.dashboard-main-content {
+  flex: 1;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--spacing-lg);
+  height: 100%;
+}
+
+.overview-section {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.activity-feed-section {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+.calendar-section{
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.upcoming-schedule-section {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+
+
+/* ----------------------------------- DashboardOverview Styles ---------------------- */
+.dashboard-overview {
+  background-color: var(--color-background-card);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-card);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-overview .section-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--spacing-sm);
+}
+.this-week {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-medium);
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+}
+.overview-content {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  min-width: 250px;
+}
+
+
+/* ------------------------------ AnatomySection Styles ------------------------ */
+.anatomy-section {
+  flex: 1.5;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 120%;
+  background-color: #E8F0FE;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+.human-body-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+/* .indicator {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  background-color: white;
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--border-radius-pill);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  box-shadow: var(--box-shadow-card);
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--color-light-border);
+} */
+
+.indicator-point {
+  position: absolute;
+  width: 0; 
+  height: 0;
+
+}
+
+.scanner-icon {
+  width: 30px; 
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  /* vertical-align: middle; */
+}
+
+
+.indicator-text-bubble {
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--border-radius-pill);
+  box-shadow: var(--box-shadow-card);
+  white-space: nowrap;
+  border: 1px solid var(--color-light-border);
+  position: absolute; 
+  top: 0;
+  left: 10px; 
+  transform: translateY(-50%); 
+  z-index: 1; 
+}
+
+.indicator-point.healthy .indicator-text-bubble {
+  background-color: var(--color-primary-blue); 
+  border-color: var(--color-primary-blue); 
+}
+
+.indicator-point.issue .indicator-text-bubble {
+  background-color: var(--color-logo); 
+  border-color: var(--color-logo); 
+}
+
+.indicator-text {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: white;
+}
+
+
+/* -------------------------------- HealthStatusCards Styles ----------------------------------- */
+.health-status-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.health-status-cards .card {
+  background-color: var(--color-background-app);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-input);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--color-light-border);
+  
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+.card-icon {
+  font-size: var(--font-size-lg);
+  /* color: var(--color-primary-blue); */
+}
+
+.organ-name {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  color: var(--color-secondary-dark);
+}
+
+.date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-medium);
+  margin-bottom: var(--spacing-sm);
+}
+
+
+.progress-bar-container {
+  width: 100%; 
+  height: 8px; 
+  background-color: var(--color-light-border); 
+  border-radius: var(--border-radius-pill); 
+  overflow: hidden; 
+  margin-top: var(--spacing-sm); 
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: var(--border-radius-pill); 
+  transition: width 0.5s ease-in-out; 
+}
+
+/* ------------------------------------- CalendarView Styles -------------------------------------- */
+.calendar-view {
+  background-color: var(--color-background-app);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-input);
+  border: 1px solid var(--color-light-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.month-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-dark);
+  margin: 0;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.calendar-view .nav-icon { 
+  font-size: var(--font-size-sm);
+  color: var(--color-text-medium);
+  cursor: pointer;
+}
+
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-medium);
+  margin-bottom: var(--spacing-xs);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-xxs);
+}
+
+.day-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xxs);
+  background-color: white;
+  border-radius: var(--border-radius-sm);
+  min-height: 50px;
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+.day-number {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--spacing-xxs);
+}
+
+.day-cell.selected-day {
+  background-color: var(--color-calendar-day-active);
+  color: var(--color-calendar-text-blue);
+  font-weight: var(--font-weight-bold);
+  border-color: var(--color-primary-blue);
+}
+.day-cell.selected-day .day-number {
+    color: var(--color-primary-blue);
+}
+
+.empty-cell {
+  visibility: hidden;
+}
+
+.appointment-times {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.appointment-time {
+  background-color: var(--color-primary-blue);
+  color: white;
+  font-size: var(--font-size-xxs);
+  padding: 2px 4px;
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.appointment-details {
+  margin-top: var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.detail-card {
+  background-color: var(--color-primary-blue);
+  color: white;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.detail-icon {
+  font-size: var(--font-size-lg);
+  color: white;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+}
+
+.detail-type {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+.detail-name {
+  font-size: var(--font-size-xxs);
+  margin: 0;
+}
+
+.detail-time {
+  font-size: var(--font-size-xxs);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+
+/* ------------------------------------- UpcomingSchedule Styles ------------------------- */
+.upcoming-schedule {
+  background-color: var(--color-background-card);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-card);
+  display: flex;
+  flex-direction: column;
+    max-width: 600px;
+  margin: 0 auto;
+}
+
+.upcoming-schedule .title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--spacing-md);
+}
+.day-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.day-heading {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--spacing-sm);
+}
+.appointment-list {
+  display: grid;
+grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md); 
+}
+
+/* --- SimpleAppointmentCard Styles --- */
+.simple-appointment-card { 
+  background-color: var(--color-background-app);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-shadow: var(--box-shadow-input);
+  border: 1px solid var(--color-light-border);
+
+}
+
+.icon-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(91, 144, 244, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.type {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary-dark);
+  margin: 0;
+}
+
+.time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-medium);
+}
+.card-icon {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary-blue);
+}
+
+/* --- ActivityFeed Styles --- */
+.activity-feed {
+  background-color: var(--color-background-card);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-card);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  gap: var(--spacing-md);
+
+}
+
+.activity-feed .title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+.summary {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-medium);
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.chart-container {
+  grid-column: 1 / -1; 
+  grid-row: 2 / 3;     
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 150px;
+  border-bottom: 2px solid var(--color-light-border);
+  padding-bottom: var(--spacing-xs);
+  gap: var(--spacing-xs);
+  position: relative;
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 12px;
+  background-color: var(--color-primary-blue);
+  border-top-left-radius: var(--border-radius-sm);
+  border-top-right-radius: var(--border-radius-sm);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: height 0.3s ease;
+}
+
+.bar-day {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-medium);
+  margin-top: var(--spacing-xs);
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablet view  */
+@media (max-width: 1024px) {
+  .app-container {
+    padding-top: var(--header-height-tablet);
+  }
+
+  .header {
+    height: var(--header-height-tablet);
+    flex-wrap: wrap;
+  }
+  .header .logo { order: 1; flex-grow: 0; flex-shrink: 0; }
+  .search-bar { order: 3; flex-basis: 100%; max-width: 100%; margin-top: var(--spacing-sm); min-width: 0; }
+  .right-section { order: 2; margin-left: auto; flex-shrink: 0; }
+  .user-profile .user-name { display: none; }
+  .user-profile { padding: var(--spacing-xs); background-color: transparent; }
+
+  .content-area {
+    /* flex-direction: column; */
+    padding: var(--spacing-md);
+    gap: var(--spacing-md); 
+    /* overflow-y: auto; 
+    /* overflow-x: hidden; */
+  }
+
+  /* --- HIDE SIDEBAR --- */
+  .sidebar-wrapper, 
+  .sidebar {        
+    display: none !important; 
+  }
+  /* --- END HIDE SIDEBAR --- */
+
+
+  .dashboard-main-content,
+  .main-content-wrapper { 
+    margin-left: 0 !important; 
+    width: 100%;
+  }
+
+  .grid-container { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .overview-section, .activity-feed-section, .calendar-section, .upcoming-schedule-section { grid-column: 1 / -1; grid-row: auto; }
+  .dashboard-overview .overview-content { flex-direction: column; align-items: center; }
+  .anatomy-section { max-width: 100%; width: 100%; }
+  .image-container { max-width: 450px; margin: 0 auto; }
+  .right-column { min-width: 0; width: 100%; }
+}
+
+/* Mobile view  */
+@media (max-width: 768px) {
+  body,
+  #root {
+    font-size: var(--font-size-xs);
+  }
+
+  .app-container {
+    padding-top: var(--header-height-mobile);
+  }
+
+  .header {
+    height: var(--header-height-mobile);
+    padding: var(--spacing-sm) var(--spacing-xs);
+    gap: var(--spacing-xs);
+  }
+  .header .logo { font-size: var(--font-size-lg); }
+  .search-bar { margin-top: var(--spacing-xs); }
+  .search-input { font-size: var(--font-size-xs); }
+  .right-section { gap: var(--spacing-xs); }
+  .add-button { width: 32px; height: 32px; font-size: var(--font-size-sm); }
+  .notification-icon { font-size: var(--font-size-md); }
+  .user-profile { display: flex; }
+
+  .content-area {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+    /* flex-direction: column; /* Inherited from tablet if set there */
+  }
+
+  .dashboard-overview .section-title, .upcoming-schedule .title, .activity-feed .title { font-size: var(--font-size-lg); }
+  .overview-content, .health-status-cards { gap: var(--spacing-sm); }
+  .image-container { max-width: 320px; }
+  .calendar-view { padding: var(--spacing-sm); }
+  .month-title { font-size: var(--font-size-sm); }
+  .days-of-week { font-size: var(--font-size-xxs); }
+  .day-cell { min-height: 35px; padding: 2px; font-size: var(--font-size-xxs); }
+  .day-number { font-size: var(--font-size-xs); }
+  .appointment-time { font-size: 0.6rem; padding: 1px 2px; }
+  .appointment-details { grid-template-columns: 1fr; gap: var(--spacing-xs); }
+  .upcoming-schedule { padding: var(--spacing-sm); }
+  .day-heading { font-size: var(--font-size-sm); }
+  .simple-appointment-card { padding: var(--spacing-xs); }
+  .simple-appointment-card .icon-container { width: 32px; height: 32px; }
+  .simple-appointment-card .card-icon { font-size: var(--font-size-md); }
+  .simple-appointment-card .type { font-size: var(--font-size-xs); }
+  .simple-appointment-card .time { font-size: var(--font-size-xxs); }
+  .activity-feed { padding: var(--spacing-sm); }
+  .summary { font-size: var(--font-size-xs); }
+  .chart-container { height: 120px; }
+  .bar { width: clamp(6px, 2.5vw, 10px); }
+  .bar-day { font-size: var(--font-size-xxs); }
+}
