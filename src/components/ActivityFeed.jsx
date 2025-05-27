@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/App.css'; // Import global styles
+import '../styles/App.css';
 
 function ActivityFeed() {
   const barHeights = [
@@ -11,12 +11,11 @@ function ActivityFeed() {
     { day: 'Sat', height: '70%' },
     { day: 'Sun', height: '45%' },
   ];
-
+  
   return (
     <div className="activity-feed">
-      {/* Revert to just the title */}
       <h3 className="title">Activity</h3>
-      {/* The summary remains as it was in your previous code */}
+
       <p className="summary">3 appointments on this week</p>
 
       <div className="chart-container">

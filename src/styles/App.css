@@ -15,7 +15,7 @@
   --color-calendar-day-active: #E8F0FE; /* Light blue for active calendar day */
   --color-calendar-text-blue: #4A85F1; /* Darker blue for calendar times */
   --color-light-border: #EEEEEE;     /* Very light grey for subtle borders */
-  --color-search-bg: #F2F4F7;         /* Slightly darker background for search input */
+  --color-search-bg: #F2F4F7;         /* Slightly darker background */
 
   /* Fonts */
   --font-family-primary: 'Inter', sans-serif;
@@ -48,9 +48,9 @@
   --border-radius-lg: 12px;
   --border-radius-pill: 50px; /* For buttons like + and search bar */
 
-  /* Standard card shadow from image */
+  /* card shadow  */
   --box-shadow-card: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft, light shadow */
-  --box-shadow-input: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* For inputs */
+  --box-shadow-input: inset 0 1px 3px rgba(0, 0, 0, 0.05); 
 }
 
 * {

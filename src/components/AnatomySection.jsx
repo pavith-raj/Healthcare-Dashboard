@@ -3,7 +3,6 @@ import '../styles/App.css';
 import humanBody from '../assets/human-body.png';
 import scannerImage from '../assets/scannerImage.png';
 
-
 function AnatomySection({ indicators }) {
     return (
     <div className="anatomy-section">
